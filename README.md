@@ -13,9 +13,11 @@ Historia de Usuario
   - Un usuario puede compartir el proyecto (Hacer colaboradores)
   - Un usuario puede modificar proyectos propios o de colaboradores
   - Un usuario puede ver proyectos externos en solo lectura (No siendo colaborador)
-  - Un usuario puede comentar proyectos de los que no es colaborador
+  - Un usuario puede comentar proyectos de los que no es colaborador (para recomendar cambios, solo visible al autor/colaborador)
   - Un usuario puede puede seguir proyectos ajenos y a otros usuarios
   - Un usuario puede valorar proyectos y mostrar mejores valorados
+  - Un usuario puede enviar correo a otro
+  - Un usuario puede añadir comentarios publicos a un proyecto
 
 Extras
   - Foro dudas
