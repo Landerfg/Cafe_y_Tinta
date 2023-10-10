@@ -3,7 +3,7 @@ Café y Tinta es una aplicación diseñada para la gestión de proyectos literar
 
 ## Estructura de la Base de Datos
 
-### Usuarios
+
 ```sql
 CREATE TABLE Usuarios (
   id_usuario INT PRIMARY KEY AUTO_INCREMENT,
@@ -12,7 +12,7 @@ CREATE TABLE Usuarios (
   contrasenia_usuario VARCHAR(255)
 );
 
-### Proyectos
+
 CREATE TABLE Proyectos (
   id_proyecto INT PRIMARY KEY AUTO_INCREMENT,
   id_usuario_propietario INT,
@@ -22,7 +22,7 @@ CREATE TABLE Proyectos (
   FOREIGN KEY (id_usuario_propietario) REFERENCES Usuarios(id_usuario)
 );
 
-### Colaboradores
+
 CREATE TABLE Colaboradores (
   id_usuario_colaborador INT,
   id_proyecto INT,
