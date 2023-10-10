@@ -62,7 +62,7 @@ CREATE TABLE Comentarios (
 
 ---
 
-##Extras
+## Extras
   - Foro dudas
   - Pantalla de novedades de Proyectos y usuarios a los que sigues
   - Un usuario puede donar un café a algún proyecto/autor para apoyar
