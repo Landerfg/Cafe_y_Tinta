@@ -1,4 +1,5 @@
                 **** Carpetas a nivel de servidor para el proyecto ****
+doc/      readme.md (Comandos, estructura de directorios...)
 bin/      runserver.sb         (Ejecutables)
 db/       create_db.sql        (los creates de las tablas)
           initial_local.sql    (Los insters de la BD)
