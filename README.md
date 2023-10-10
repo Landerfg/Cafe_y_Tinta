@@ -19,6 +19,7 @@ CREATE TABLE Proyectos (
   titulo_proyecto VARCHAR(255),
   descripcion_proyecto VARCHAR(255),
   privacidad_proyecto  VARCHAR(20),
+  valoracion_proyecto CHECK (valoracion_proyecto >= 0 AND valoracion_proyecto <= 3),
   FOREIGN KEY (id_usuario_propietario) REFERENCES Usuarios(id_usuario)
 );
 
@@ -31,12 +32,24 @@ CREATE TABLE Colaboradores (
   FOREIGN KEY (id_proyecto) REFERENCES Proyectos(id_proyecto),
   FOREIGN KEY (id_usuario_colaborador) REFERENCES Usuarios(id_usuario)
 );
+
+CREATE TABLE Comentarios (
+  id_comentario INT PRIMARY KEY AUTO_INCREMENT,
+  id_usuario_comenta INT,
+  id_proyecto_comentado INT,
+  contenido_comentario TEXT,
+  fecha_comentario TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_usuario_comenta) REFERENCES Usuarios(id_usuario),
+  FOREIGN KEY (id_proyecto_comentado) REFERENCES Proyectos(id_proyecto)
+);
+
 ...
 
-
 ## Relaciones
-- La tabla `Colaboradores` establece la relación entre usuarios y proyectos, asignando roles específicos a los colaboradores en esos proyectos.
-- Las claves foráneas en la tabla `Colaboradores` se relacionan con las claves primarias de las tablas `Proyectos`, `Usuarios` y `Roles`, respectivamente.
+- La relación entre usuarios y proyectos es de uno a muchos, permitiendo que un usuario pueda crear varios proyectos, pero cada proyecto es creado por un único usuario propietario.
+- La tabla Colaboradores establece la conexión entre usuarios y proyectos, atribuyendo roles específicos a los colaboradores en cada proyecto.
+- Las claves foráneas en la tabla Colaboradores están vinculadas con las claves primarias de las tablas Proyectos y Usuarios, facilitando una relación directa entre los participantes y los proyectos.
+- La tabla Comentarios gestiona los comentarios en los proyectos. Cada comentario está vinculado a un usuario y un proyecto específicos.
 
 ## Funcionalidades Principales
 - **Registro de Usuario:** Permite a los usuarios crear una cuenta proporcionando información como `Nombre`, `Correo Electrónico` y `Contraseña`.
@@ -51,23 +64,7 @@ CREATE TABLE Colaboradores (
 
 ---
 
-
-## Entidades
- **Usuarios**
-
-Historia de Usuario
-  - **Registro de Usuario:**  usuarios puedan crear una cuenta proporcionando la información necesaria, como nombre, correo electrónico y contraseña.
-  - **Recuperación de Contraseña:** restablecer su contraseña mediante un enlace enviado a su correo electrónico.
-  - **Eliminación de Usuario:** una función que permita a los usuarios eliminar su cuenta si lo desean.
-  - **Creación de Proyecto:**  usuarios crean proyectos, ingresando detalles como título, descripción y configuraciones de privacidad (public ,private ,colaboradores).
-  - **Compartir Proyecto (Hacer Colaboradores):** implementa una función que permita a los usuarios agregar colaboradores a sus proyectos, asignándoles roles y permisos específicos.
-  - **Modificación de Proyectos:** proporciona a los usuarios la capacidad de editar y actualizar sus propios proyectos, así como proyectos en los que colaboran.
-  - **Visualización de Proyectos Externos en Modo de Solo Lectura:**  los usuarios puedan ver proyectos de otros usuarios en modo de solo lectura, sin posibilidad de realizar modificaciones.
-  - **Comentarios en Proyectos:**
-  - **Seguir Proyectos y Otros Usuarios:**
-  - **Valoración de Proyectos:** Proporciona una función de valoración para que los usuarios puedan expresar su aprecio por proyectos específicos. 
-
-Extras
+##Extras
   - Foro dudas
   - Pantalla de novedades de Proyectos y usuarios a los que sigues
   - Un usuario puede donar un café a algún proyecto/autor para apoyar
