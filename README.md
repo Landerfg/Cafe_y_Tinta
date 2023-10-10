@@ -45,16 +45,6 @@ CREATE TABLE Comentarios (
 
 ...
 
-## Capturas de Pantalla
-
-![Usuarios](img/usuarios.png)
-![Proyectos](img/proyectos.png)
-![Colaboradores](img/colaboradores.png)
-![Comentarios](img/comentarios.png)
-
-
-
-
 ## Relaciones
 - La relación entre usuarios y proyectos es de uno a muchos, permitiendo que un usuario pueda crear varios proyectos, pero cada proyecto es creado por un único usuario propietario.
 - La tabla Colaboradores establece la conexión entre usuarios y proyectos, atribuyendo roles específicos a los colaboradores en cada proyecto.
