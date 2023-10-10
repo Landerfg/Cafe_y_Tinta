@@ -27,7 +27,7 @@ CREATE TABLE Proyectos (
 CREATE TABLE Colaboradores (
   id_usuario_colaborador INT,
   id_proyecto INT,
-  es_editor BOOLEAN,
+  es_propietario BOOLEAN,
   PRIMARY KEY (id_usuario_colaborador, id_proyecto),
   FOREIGN KEY (id_proyecto) REFERENCES Proyectos(id_proyecto),
   FOREIGN KEY (id_usuario_colaborador) REFERENCES Usuarios(id_usuario)
