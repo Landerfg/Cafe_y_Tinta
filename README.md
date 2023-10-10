@@ -19,7 +19,6 @@ CREATE TABLE Proyectos (
   titulo_proyecto VARCHAR(255),
   descripcion_proyecto VARCHAR(255),
   privacidad_proyecto  VARCHAR(20),
-  valoracion_proyecto CHECK (valoracion_proyecto >= 0 AND valoracion_proyecto <= 3),
   FOREIGN KEY (id_usuario_propietario) REFERENCES Usuarios(id_usuario)
 );
 
@@ -68,3 +67,4 @@ CREATE TABLE Comentarios (
   - Foro dudas
   - Pantalla de novedades de Proyectos y usuarios a los que sigues
   - Un usuario puede donar un café a algún proyecto/autor para apoyar
+  - valoracion_proyecto CHECK (valoracion_proyecto >= 0 AND valoracion_proyecto <= 3),
