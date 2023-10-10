@@ -47,10 +47,10 @@ CREATE TABLE Comentarios (
 
 ## Capturas de Pantalla
 
-![Usuarios](https://github.com/Landerfg/Cafe_y_Tinta/blob/main/img/usuarios.png?raw=true)
-![Proyectos](https://github.com/Landerfg/Cafe_y_Tinta/blob/main/img/proyectos.png?raw=true)
-![Colaboradores](https://github.com/Landerfg/Cafe_y_Tinta/blob/main/img/colaboradores.png?raw=true)
-![Comentarios](https://github.com/Landerfg/Cafe_y_Tinta/blob/main/img/comentarios.png?raw=true)
+![Usuarios](https://raw.githubusercontent.com/Landerfg/Cafe_y_Tinta/main/img/usuarios.png?token=GHSAT0AAAAAACHK35VTLMQP2D3HPWQELKWQZJFIZSQ)
+![Proyectos]([https://github.com/Landerfg/Cafe_y_Tinta/blob/main/img/proyectos.png?raw=true](https://raw.githubusercontent.com/Landerfg/Cafe_y_Tinta/main/img/proyectos.png?token=GHSAT0AAAAAACHK35VSODAXLXQGPAVOXYCOZJFIZ5Q))
+![Colaboradores](https://raw.githubusercontent.com/Landerfg/Cafe_y_Tinta/main/img/colaboradores.png?token=GHSAT0AAAAAACHK35VTQF2IHN3NUYSEWKOSZJFI2PQ)
+![Comentarios](https://raw.githubusercontent.com/Landerfg/Cafe_y_Tinta/main/img/comentarios.png?token=GHSAT0AAAAAACHK35VSUPIBRYJX5K554VNIZJFIY7Q)
 
 
 ## Relaciones
