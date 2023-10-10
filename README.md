@@ -31,7 +31,7 @@ CREATE TABLE Colaboradores (
   FOREIGN KEY (id_proyecto) REFERENCES Proyectos(id_proyecto),
   FOREIGN KEY (id_usuario_colaborador) REFERENCES Usuarios(id_usuario)
 );
-```
+...
 
 
 ## Relaciones
