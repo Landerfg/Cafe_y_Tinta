@@ -50,7 +50,7 @@ CREATE TABLE Comentarios (
 - La tabla Comentarios gestiona los comentarios en los proyectos. Cada comentario está vinculado a un usuario y un proyecto específicos.
 
 ## Funcionalidades Principales
-- Registro de Usuario: Permite a los usuarios crear una cuenta proporcionando información como `Nombre`, `Correo Electrónico` y `Contraseña`.
+- **Registro de Usuario:** Permite a los usuarios crear una cuenta proporcionando información como `Nombre`, `Correo Electrónico` y `Contraseña`.
 - Recuperación de Contraseña: Ofrece la posibilidad de restablecer la contraseña mediante un enlace enviado al `Correo Electrónico` del usuario.
 - Eliminación de Usuario: Permite a los usuarios eliminar su cuenta si lo desean.
 - Creación de Proyecto: Usuarios pueden crear proyectos, ingresando detalles como `Título`, `Descripción` y configuraciones de `Privacidad`.
