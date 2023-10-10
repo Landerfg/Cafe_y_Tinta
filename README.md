@@ -42,7 +42,6 @@ CREATE TABLE Comentarios (
   FOREIGN KEY (id_proyecto_comentado) REFERENCES Proyectos(id_proyecto)
 );
 
-...
 
 ## Relaciones
 - La relación entre usuarios y proyectos es de uno a muchos, permitiendo que un usuario pueda crear varios proyectos, pero cada proyecto es creado por un único usuario propietario.
