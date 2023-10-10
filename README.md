@@ -45,6 +45,14 @@ CREATE TABLE Comentarios (
 
 ...
 
+## Capturas de Pantalla
+
+![Usuarios](https://github.com/Landerfg/Cafe_y_Tinta/blob/main/img/usuarios.png?raw=true)
+![Proyectos](https://github.com/Landerfg/Cafe_y_Tinta/blob/main/img/proyectos.png?raw=true)
+![Colaboradores](https://github.com/Landerfg/Cafe_y_Tinta/blob/main/img/colaboradores.png?raw=true)
+![Comentarios](https://github.com/Landerfg/Cafe_y_Tinta/blob/main/img/comentarios.png?raw=true)
+
+
 ## Relaciones
 - La relación entre usuarios y proyectos es de uno a muchos, permitiendo que un usuario pueda crear varios proyectos, pero cada proyecto es creado por un único usuario propietario.
 - La tabla Colaboradores establece la conexión entre usuarios y proyectos, atribuyendo roles específicos a los colaboradores en cada proyecto.
