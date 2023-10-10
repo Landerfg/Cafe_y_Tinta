@@ -51,14 +51,14 @@ CREATE TABLE Comentarios (
 
 ## Funcionalidades Principales
 - **Registro de Usuario:** Permite a los usuarios crear una cuenta proporcionando información como `Nombre`, `Correo Electrónico` y `Contraseña`.
-- Recuperación de Contraseña: Ofrece la posibilidad de restablecer la contraseña mediante un enlace enviado al `Correo Electrónico` del usuario.
-- Eliminación de Usuario: Permite a los usuarios eliminar su cuenta si lo desean.
-- Creación de Proyecto: Usuarios pueden crear proyectos, ingresando detalles como `Título`, `Descripción` y configuraciones de `Privacidad`.
-- Compartir Proyecto (Hacer Colaboradores): Implementa una función que permite a los usuarios agregar colaboradores a sus proyectos, asignándoles roles y permisos específicos.
-- Modificación de Proyectos: Proporciona a los usuarios la capacidad de editar y actualizar sus propios proyectos, así como proyectos en los que colaboran.
-- Visualización de Proyectos Externos en Modo de Solo Lectura: Los usuarios pueden ver proyectos de otros usuarios en modo de solo lectura, sin posibilidad de realizar modificaciones.
-- Comentarios en Proyectos: Permite a los usuarios comentar en proyectos.
-- Valoración de Proyectos: Proporciona una función de valoración para que los usuarios expresen su aprecio por proyectos específicos.
+- **Recuperación de Contraseña:** Ofrece la posibilidad de restablecer la contraseña mediante un enlace enviado al `Correo Electrónico` del usuario.
+- **Eliminación de Usuario:** Permite a los usuarios eliminar su cuenta si lo desean.
+- **Creación de Proyecto:** Usuarios pueden crear proyectos, ingresando detalles como `Título`, `Descripción` y configuraciones de `Privacidad`.
+- **Compartir Proyecto (Hacer Colaboradores):** Implementa una función que permite a los usuarios agregar colaboradores a sus proyectos, asignándoles roles y permisos específicos.
+- **Modificación de Proyectos:** Proporciona a los usuarios la capacidad de editar y actualizar sus propios proyectos, así como proyectos en los que colaboran.
+- **Visualización de Proyectos Externos en Modo de Solo Lectura:** Los usuarios pueden ver proyectos de otros usuarios en modo de solo lectura, sin posibilidad de realizar modificaciones.
+- **Comentarios en Proyectos:** Permite a los usuarios comentar en proyectos.
+- **Valoración de Proyectos:** Proporciona una función de valoración para que los usuarios expresen su aprecio por proyectos específicos.
 
 ---
 
