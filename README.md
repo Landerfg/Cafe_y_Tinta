@@ -48,12 +48,10 @@ CREATE TABLE Comentarios (
 ## Capturas de Pantalla
 
 ![Usuarios](img/usuarios.png)
+![Proyectos](img/proyectos.png)
+![Colaboradores](img/colaboradores.png)
+![Comentarios](img/comentarios.png)
 
-![Proyectos](https://raw.githubusercontent.com/Landerfg/Cafe_y_Tinta/main/img/proyectos.png?token=GHSAT0AAAAAACHK35VSODAXLXQGPAVOXYCOZJFIZ5Q)
-
-![Colaboradores](https://raw.githubusercontent.com/Landerfg/Cafe_y_Tinta/main/img/colaboradores.png?token=GHSAT0AAAAAACHK35VTQF2IHN3NUYSEWKOSZJFI2PQ)
-
-![Comentarios](https://raw.githubusercontent.com/Landerfg/Cafe_y_Tinta/main/img/comentarios.png?token=GHSAT0AAAAAACHK35VSUPIBRYJX5K554VNIZJFIY7Q)
 
 
 
