@@ -47,7 +47,7 @@ CREATE TABLE Comentarios (
 
 ## Capturas de Pantalla
 
-![Usuarios](https://raw.githubusercontent.com/Landerfg/Cafe_y_Tinta/main/img/usuarios.png?token=GHSAT0AAAAAACHK35VTLMQP2D3HPWQELKWQZJFIZSQ)
+![Usuarios](img/usuarios.png)
 
 ![Proyectos](https://raw.githubusercontent.com/Landerfg/Cafe_y_Tinta/main/img/proyectos.png?token=GHSAT0AAAAAACHK35VSODAXLXQGPAVOXYCOZJFIZ5Q)
 
