@@ -4,27 +4,34 @@ Café y Tinta es una aplicación diseñada para la gestión de proyectos literar
 ## Estructura de la Base de Datos
 
 ### Usuarios
-- **id_usuario (Clave Primaria)**
-- Nombre
-- Contraseña
-- Correo
+CREATE TABLE Usuarios (
+  id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+  nombre_usuario VARCHAR(255),
+  correo_usuario VARCHAR(255),
+  contrasenia_usuario VARCHAR(255)
+);
 
 ### Proyectos
-- **id_proyecto (Clave Primaria)**
-- **id_propietario (Clave Externa)**: Referencia al propietario del proyecto (id_usuario).
-- TituloProyecto
-- DescripcionProyecto
-- PrivacidadProyecto
-
-### Roles
-- **id_rol (Clave Primaria)**
-- NombreRol
+CREATE TABLE Proyectos (
+  id_proyecto INT PRIMARY KEY AUTO_INCREMENT,
+  id_usuario_propietario INT,
+  titulo_proyecto VARCHAR(255),
+  descripcion_proyecto VARCHAR(255),
+  privacidad_proyecto  VARCHAR(20),
+  FOREIGN KEY (id_usuario_propietario) REFERENCES Usuarios(id_usuario)
+);
 
 ### Colaboradores
-- **id_colaborador (Clave Primaria)**
-- **id_proyecto (Clave Externa)**: Referencia al proyecto (id_proyecto).
-- **id_colaborador (Clave Externa)**: Referencia al colaborador (id_usuario).
-- **id_rol (Clave Externa)**: Referencia al rol asignado al colaborador (id_rol).
+CREATE TABLE Colaboradores (
+  id_usuario_colaborador INT,
+  id_proyecto INT,
+  es_editor BOOLEAN,
+  PRIMARY KEY (id_usuario_colaborador, id_proyecto),
+  FOREIGN KEY (id_proyecto) REFERENCES Proyectos(id_proyecto),
+  FOREIGN KEY (id_usuario_colaborador) REFERENCES Usuarios(id_usuario)
+);
+
+
 
 ## Relaciones
 - La tabla `Colaboradores` establece la relación entre usuarios y proyectos, asignando roles específicos a los colaboradores en esos proyectos.
