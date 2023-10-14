@@ -41,6 +41,15 @@ CREATE TABLE Comentarios (
   FOREIGN KEY (id_usuario_comenta) REFERENCES Usuarios(id_usuario),
   FOREIGN KEY (id_proyecto_comentado) REFERENCES Proyectos(id_proyecto)
 );
+
+CREATE TABLE TokensResetContrasenia (
+  id_token INT PRIMARY KEY AUTO_INCREMENT,
+  id_usuario INT,
+  token VARCHAR(255),
+  expiration_timestamp INT,
+  FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
+);
+
 ```
 
 ## Relaciones
