@@ -1,4 +1,5 @@
-```sql
+<pre>
+```
 
 CREATE TABLE `usuarios` (
   `id_usuario` int NOT NULL AUTO_INCREMENT COMMENT 'id de los usuarios ',
@@ -65,16 +66,17 @@ CREATE TABLE `comentarios_proyectos` (
 
 CREATE TABLE `comentarios_usuarios` (
   `id_comentario` int NOT NULL AUTO_INCREMENT,
-  `id_usuario_comenta` int DEFAULT NULL,
-  `id_usuario_comentado` int DEFAULT NULL,
+  `id_usuario_comenta` int NOT NULL,
+  `id_usuario_comentado` int NOT NULL,
   `contenido_comentario` text,
   `fecha_comentario` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_comentario`),
-
   KEY `id_usuario_comenta` (`id_usuario_comenta`),
   KEY `id_usuario_comentado` (`id_usuario_comentado`),
   CONSTRAINT `comentarios_usuarios_ibfk_1` FOREIGN KEY (`id_usuario_comenta`) REFERENCES `usuarios` (`id_usuario`),
   CONSTRAINT `comentarios_usuarios_ibfk_2` FOREIGN KEY (`id_usuario_comentado`) REFERENCES `usuarios` (`id_usuario`)
 )
 
+
 ```
+</pre>
