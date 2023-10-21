@@ -14,12 +14,13 @@ CREATE TABLE `proyectos` (
   `descripcion_proyecto` varchar(255) DEFAULT NULL,
   `privacidad_proyecto` enum('privado','público') DEFAULT 'privado',
   `id_categoria_genero` int DEFAULT NULL,
+  `fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_proyecto`),
   KEY `id_usuario_propietario` (`id_usuario_propietario`),
   KEY `id_categoria_genero` (`id_categoria_genero`),
   CONSTRAINT `proyectos_ibfk_1` FOREIGN KEY (`id_usuario_propietario`) REFERENCES `usuarios` (`id_usuario`),
   CONSTRAINT `proyectos_ibfk_2` FOREIGN KEY (`id_categoria_genero`) REFERENCES `categorias_genero` (`id_categoria`)
-);
+)
 
 CREATE TABLE `categorias_genero` (
   `id_categoria` int NOT NULL AUTO_INCREMENT,
