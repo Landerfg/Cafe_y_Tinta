@@ -5,7 +5,7 @@ Café y Tinta es una aplicación diseñada para la gestión de proyectos literar
 
 
 ```sql
-CREATE TABLE Usuarios (
+CREATE TABLE usuarios (
   id_usuario INT PRIMARY KEY AUTO_INCREMENT,
   nombre_usuario VARCHAR(255),
   correo_usuario VARCHAR(255),
@@ -13,7 +13,7 @@ CREATE TABLE Usuarios (
 );
 
 
-CREATE TABLE Proyectos (
+CREATE TABLE proyectos (
   id_proyecto INT PRIMARY KEY AUTO_INCREMENT,
   id_usuario_propietario INT,
   titulo_proyecto VARCHAR(255),
@@ -26,13 +26,14 @@ CREATE TABLE Proyectos (
 CREATE TABLE Colaboradores (
   id_usuario_colaborador INT,
   id_proyecto INT,
-  es_propietario BOOLEAN,
+  id_usuario_propietario INT,
   PRIMARY KEY (id_usuario_colaborador, id_proyecto),
   FOREIGN KEY (id_proyecto) REFERENCES Proyectos(id_proyecto),
-  FOREIGN KEY (id_usuario_colaborador) REFERENCES Usuarios(id_usuario)
+  FOREIGN KEY (id_usuario_colaborador) REFERENCES Usuarios(id_usuario),
+  FOREIGN KEY (id_usuario_propietario) REFERENCES usuarios(id_usuario)
 );
 
-CREATE TABLE Comentarios (
+CREATE TABLE Comentarios_proyectos (
   id_comentario INT PRIMARY KEY AUTO_INCREMENT,
   id_usuario_comenta INT,
   id_proyecto_comentado INT,
@@ -42,12 +43,22 @@ CREATE TABLE Comentarios (
   FOREIGN KEY (id_proyecto_comentado) REFERENCES Proyectos(id_proyecto)
 );
 
-CREATE TABLE TokensResetContrasenia (
+CREATE TABLE tokens_reset_contrasenia (
   id_token INT PRIMARY KEY AUTO_INCREMENT,
   id_usuario INT,
   token VARCHAR(255),
   expiration_timestamp INT,
-  FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
+  FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+);
+
+CREATE TABLE Comentarios_usuarios (
+  id_comentario INT PRIMARY KEY AUTO_INCREMENT,
+  id_usuario_comenta INT,
+  id_proyecto_comentado INT,
+  contenido_comentario TEXT,
+  fecha_comentario TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_usuario_comenta) REFERENCES Usuarios(id_usuario),
+  FOREIGN KEY (id_proyecto_comentado) REFERENCES Proyectos(id_proyecto)
 );
 
 ```
