@@ -1,4 +1,5 @@
 ```sql
+
 CREATE TABLE `usuarios` (
   `id_usuario` int NOT NULL AUTO_INCREMENT COMMENT 'id de los usuarios ',
   `nombre_usuario` varchar(100) NOT NULL,
