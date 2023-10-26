@@ -1,17 +1,20 @@
 ```sql
-CREATE TABLE `usuarios` (
-  `id_usuario` int NOT NULL AUTO_INCREMENT,
-  `nombre_usuario` varchar(100) NOT NULL,
-  `contrasenya_usuario` varchar(100) NOT NULL,
-  `correo_usuario` varchar(100) NOT NULL,
-  PRIMARY KEY (`id_usuario`)
-);
+
+-- SQL
+
+  CREATE TABLE `usuarios` (
+    `id_usuario` int NOT NULL AUTO_INCREMENT COMMENT 'id de los usuarios ',
+    `nombre_usuario` varchar(100) NOT NULL,
+    `contrasenya_usuario` varchar(100) NOT NULL,
+    `correo_usuario` varchar(100) NOT NULL,
+    PRIMARY KEY (`id_usuario`)
+  ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
 CREATE TABLE `proyectos` (
   `id_proyecto` int NOT NULL AUTO_INCREMENT,
   `id_usuario_propietario` int DEFAULT NULL,
   `titulo_proyecto` varchar(255) DEFAULT NULL,
-  `descripcion_proyecto` varchar(255) DEFAULT NULL,
+  `descripcion_proyecto` text,
   `privacidad_proyecto` enum('privado','público') DEFAULT 'privado',
   `id_categoria_genero` int DEFAULT NULL,
   `fecha_creacion` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -20,48 +23,57 @@ CREATE TABLE `proyectos` (
   KEY `id_categoria_genero` (`id_categoria_genero`),
   CONSTRAINT `proyectos_ibfk_1` FOREIGN KEY (`id_usuario_propietario`) REFERENCES `usuarios` (`id_usuario`),
   CONSTRAINT `proyectos_ibfk_2` FOREIGN KEY (`id_categoria_genero`) REFERENCES `categorias_genero` (`id_categoria`)
-)
-
-CREATE TABLE `categorias_genero` (
-  `id_categoria` int NOT NULL AUTO_INCREMENT,
-  `nombre_categoria` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id_categoria`)
-);
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
 CREATE TABLE `colaboradores` (
   `id_usuario_colaborador` int NOT NULL,
   `id_proyecto` int NOT NULL,
   `id_usuario_propietario` int DEFAULT NULL,
-  PRIMARY KEY (`id_usuario_colaborador`, `id_proyecto`),
+  PRIMARY KEY (`id_usuario_colaborador`,`id_proyecto`),
   KEY `id_proyecto` (`id_proyecto`),
   KEY `id_usuario_propietario` (`id_usuario_propietario`),
   CONSTRAINT `colaboradores_ibfk_1` FOREIGN KEY (`id_usuario_colaborador`) REFERENCES `usuarios` (`id_usuario`),
   CONSTRAINT `colaboradores_ibfk_2` FOREIGN KEY (`id_proyecto`) REFERENCES `proyectos` (`id_proyecto`),
   CONSTRAINT `colaboradores_ibfk_3` FOREIGN KEY (`id_usuario_propietario`) REFERENCES `usuarios` (`id_usuario`)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-CREATE TABLE `tokens_reset_contrasenia` (
+CREATE TABLE `categorias_genero` (
+  `id_categoria` int NOT NULL AUTO_INCREMENT,
+  `nombre_categoria` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_categoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `tokens` (
   `id_token` int NOT NULL AUTO_INCREMENT,
   `id_usuario` int DEFAULT NULL,
+  `correo` varchar(50) DEFAULT NULL,
   `token` varchar(255) DEFAULT NULL,
-  `expiration_timestamp` int DEFAULT NULL,
+  `fecha_expiracion` datetime DEFAULT NULL,
   PRIMARY KEY (`id_token`),
-  KEY `id_usuario` (`id_usuario`),
-  CONSTRAINT `tokens_reset_contrasenia_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`)
-);
+  KEY `fk_tokens_usuarios` (`id_usuario`),
+  CONSTRAINT `fk_tokens_usuarios` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
-CREATE TABLE `comentarios_proyectos` (
-  `id_comentario` int NOT NULL AUTO_INCREMENT,
-  `id_usuario_comenta` int DEFAULT NULL,
-  `id_proyecto_comentado` int DEFAULT NULL,
-  `contenido_comentario` text,
-  `fecha_comentario` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_comentario`),
-  KEY `id_usuario_comenta` (`id_usuario_comenta`),
-  KEY `id_proyecto_comentado` (`id_proyecto_comentado`),
-  CONSTRAINT `comentarios_proyectos_ibfk_1` FOREIGN KEY (`id_usuario_comenta`) REFERENCES `usuarios` (`id_usuario`),
-  CONSTRAINT `comentarios_proyectos_ibfk_2` FOREIGN KEY (`id_proyecto_comentado`) REFERENCES `proyectos` (`id_proyecto`)
-);
+CREATE TABLE `notif` (
+  `id_notificacion` int NOT NULL AUTO_INCREMENT,
+  `autor` text NOT NULL,
+  `mensaje` text NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_proyecto` int NOT NULL,
+  PRIMARY KEY (`id_notificacion`),
+  KEY `FK_id_proyecto_notif` (`id_proyecto`),
+  CONSTRAINT `FK_id_proyecto_notif` FOREIGN KEY (`id_proyecto`) REFERENCES `proyectos` (`id_proyecto`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `notif_usuarios` (
+  `id_notificacion` int NOT NULL,
+  `id_usuario` int NOT NULL,
+  `estado` int DEFAULT '0',
+  PRIMARY KEY (`id_notificacion`,`id_usuario`),
+  KEY `FK_usuarios` (`id_usuario`),
+  CONSTRAINT `FK_notif` FOREIGN KEY (`id_notificacion`) REFERENCES `notif` (`id_notificacion`),
+  CONSTRAINT `FK_usuarios` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
 CREATE TABLE `comentarios_usuarios` (
   `id_comentario` int NOT NULL AUTO_INCREMENT,
@@ -74,5 +86,19 @@ CREATE TABLE `comentarios_usuarios` (
   KEY `id_usuario_comentado` (`id_usuario_comentado`),
   CONSTRAINT `comentarios_usuarios_ibfk_1` FOREIGN KEY (`id_usuario_comenta`) REFERENCES `usuarios` (`id_usuario`),
   CONSTRAINT `comentarios_usuarios_ibfk_2` FOREIGN KEY (`id_usuario_comentado`) REFERENCES `usuarios` (`id_usuario`)
-);
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `comentarios_proyectos` (
+  `id_comentario` int NOT NULL AUTO_INCREMENT,
+  `id_usuario_comenta` int DEFAULT NULL,
+  `id_proyecto_comentado` int DEFAULT NULL,
+  `contenido_comentario` text,
+  `fecha_comentario` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_comentario`),
+  KEY `id_usuario_comenta` (`id_usuario_comenta`),
+  KEY `id_proyecto_comentado` (`id_proyecto_comentado`),
+  CONSTRAINT `comentarios_proyectos_ibfk_1` FOREIGN KEY (`id_usuario_comenta`) REFERENCES `usuarios` (`id_usuario`),
+  CONSTRAINT `comentarios_proyectos_ibfk_2` FOREIGN KEY (`id_proyecto_comentado`) REFERENCES `proyectos` (`id_proyecto`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
 ```
