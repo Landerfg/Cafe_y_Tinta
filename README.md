@@ -63,12 +63,6 @@ CREATE TABLE Comentarios_usuarios (
 
 ```
 
-## Relaciones
-- La relación entre usuarios y proyectos es de uno a muchos, permitiendo que un usuario pueda crear varios proyectos, pero cada proyecto es creado por un único usuario propietario.
-- La tabla Colaboradores establece la conexión entre usuarios y proyectos, atribuyendo roles específicos a los colaboradores en cada proyecto.
-- Las claves foráneas en la tabla Colaboradores están vinculadas con las claves primarias de las tablas Proyectos y Usuarios, facilitando una relación directa entre los participantes y los proyectos.
-- La tabla Comentarios gestiona los comentarios en los proyectos. Cada comentario está vinculado a un usuario y un proyecto específicos.
-
 ## Funcionalidades Principales
 - **Registro de Usuario:** Permite a los usuarios crear una cuenta proporcionando información como `Nombre`, `Correo Electrónico` y `Contraseña`.
 - **Recuperación de Contraseña:** Ofrece la posibilidad de restablecer la contraseña mediante un enlace enviado al `Correo Electrónico` del usuario.
