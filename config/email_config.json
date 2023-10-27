@@ -1,0 +1,9 @@
+{
+    "smtp_host": "smtp.ionos.es",
+    "smtp_username": "proyecto@cafeytinta.es",
+    "smtp_password": "cafeytinta2023",
+    "smtp_secure": "tls",
+    "smtp_port": 587,
+    "smtp_from": "cafeytinta"
+  }
+  
