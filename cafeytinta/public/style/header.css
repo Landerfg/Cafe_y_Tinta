@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import url(colors.css);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body , html{
+  display: flex;
+  flex-direction: column; 
+  min-height: 100vh;
+  background: url('../img/bg2.jpg') no-repeat   ;
+  background-size: cover;
+  background-position: center;
+}
+
+.mi-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.3rem 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.mi-header::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .1);
+  backdrop-filter: blur(50px);
+  z-index: -1;
+}
+
+.mi-header::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,transparent,rgba(255,255,255,.4) ,transparent);
+  transition: .5s;
+ 
+}
+
+.mi-header:hover::after{
+  left: 100%;
+}
+
+
+
+.logo{
+  font-size: 2rem;
+  background: linear-gradient(to top, #98ddb4, #95e9b8, #90ebb4, #6aeca0, #34e27c, #1bcc65, #01692d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.mi-navbar a{
+  font-size: 1.15rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left:2.5rem;
+}
+
+.iconos{
+  position: absolute;
+  right: 5%;
+  font-size: 2.8rem;
+  color: white;
+  cursor: pointer;
+  display: none;
+
+}
+
+#checke{
+  display: none;
+}
+
+/*breakpoints*/
+
+@media only screen and (max-width: 992px){
+  .mi-header{
+    padding: 1.3rem 5%;
+  }
+  
+}
+@media only screen and (max-width: 840px){
+  .iconos{
+    display: inline-flex;
+  }
+
+  #checke:checked ~.iconos #menu-icono{
+    display: none;
+  }
+  .iconos #close-icono{
+    display: none;
+  }
+
+  #checke:checked ~.iconos #close-icono{
+    display: block;
+  }
+
+  .mi-navbar{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height:0;
+    background: rgba(0, 0, 0, .1);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    overflow: hidden;
+    transition: .3s ease;
+  }
+
+  #checke:checked ~.mi-navbar{
+    height: 14.7rem;
+  }
+
+  .mi-navbar a{
+    display: block;
+    font-size: 1.1rem;
+    margin:1.5rem 0;
+    text-align: center;
+    transform: translateY(-50px);
+    transition: .3s ease;
+    opacity: 0;
+  }
+
+  #checke:checked ~.mi-navbar a{
+    transform: translateY(0);
+    transition-delay:calc(.15s * var(--i));
+    opacity: 1;
+
+  }
+}
+

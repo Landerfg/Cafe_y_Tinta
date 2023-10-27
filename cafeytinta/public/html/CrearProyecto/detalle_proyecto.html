@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+		
+    <style>
+        body {
+			background-image: radial-gradient(circle at 50.38% 50.54%, #79eba6 0, #7ae6a7 16.67%, #6aee9f 33.33%, #82f3b1 50%, #34e27c 66.67%, #1bcc65 83.33%, #10a94f 100%);
+            font-family: 'Roboto', sans-serif;
+            color: #11562f;
+            margin: 0;
+            padding: 0;
+        }
+
+         .principal {
+            margin-top: 50px;
+        }
+
+        .card-header-second {
+			background: linear-gradient(-90deg, #8ed3aa, #10a94f);
+
+            border-radius: 10px 10px 0 0;
+            box-shadow: 1px 7px 15px #a2a2a2;
+            height: 120px;
+            margin: -25px -25px 0px -25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-header-title {
+            font-size: 1.5em;
+            color: white;
+        }
+
+        .card-body {
+            padding: 30px;
+			background-color: rgb(255, 255, 255);
+        }
+
+        .btn-secondary {
+            background-color: #10a94f;
+            border: none;
+        }
+
+        .btn-secondary:hover {
+            background-color: #136837;
+        } 
+
+		.ber:hover{
+			color: #136837;
+		}
+    </style>
+</head>
+<title>Café y Tinta</title>
+<body class="d-flex align-items-center justify-content-center vh-100">
+    <div class="container-fluid principal">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card-section rounded ">
+                    <div class="card-header card-header-second">
+                        <h2 class="card-header-title text-center">
+                            <?php echo $proyecto['titulo_proyecto']; ?>
+                        </h2>
+                    </div>
+                    <div class="card-body text-center">
+						<p class="card-text  ">
+							<?php echo $proyecto['descripcion_proyecto']; ?>
+						</p>
+						<br><br>
+						<strong>Fecha de Creación:</strong><br>
+						<?php echo $proyecto['fecha_creacion']; ?><br><br>
+					
+						<strong>Categoría/Genero:</strong><br>
+						<?php echo $nombre_categoria; ?><br><br>
+						<button class="btn btn-lg btn-secondary">Editar</button>
+						<!-- Botón para volver a la página de inicio -->
+						<div class="d-flex justify-content-start align-items-end   ">
+
+							<a href="PaginaPrincipal.php"class="">
+								<i class=" ber bi bi-arrow-left-square-fill " style="font-size: 2.3rem; color:#10a94f"></i>
+							</a>
+						</div>
+						
+					</div>
+					
+					
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

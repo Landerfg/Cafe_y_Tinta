@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/style/header.css">
+    <link rel="stylesheet" href="../public/style/general.css">
+    <title>Bienvenido a Café y Tinta</title>
+</head>
+<style>
+    .card-section-third {
+        box-shadow: 1px 5px 15px #a2a2a2;
+        background: linear-gradient(-90deg, #11998e, #38ef7d);
+        text-align: center;
+        margin-bottom: 5px;
+        border-radius: 10px;
+
+    }
+
+    /* efecto shadows para todas las tarjetas */
+    .card-section {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+        width: fit-content;
+        /* height: auto; */
+        overflow: hidden;
+    }
+
+    /* Para el efecto sombra al pasar por encima el mouse */
+    .card-section:hover {
+        box-shadow: 1px 1px 20px #d2d2d2;
+    }
+</style>
+
+<body>
+    <div class="container-fluid ">
+        <header class="mi-header">
+            <a href="#" class="logo">Cafe&Tinta</a>
+
+            <input type="checkbox" id="checke">
+            <label for="checke" class="iconos">
+                <i class='bx bx-menu' id="menu-icono"></i>
+                <i class='bx bx-x' id="close-icono"></i>
+            </label>
+
+            <nav class="mi-navbar">
+                <a href="#" style="--i:0;">Inicio</a>
+                <!-- <a href="#" style="--i:1;">Sobre...</a> -->
+                <a href="../public/html/perfil.html" style="--i:2;">Mi perfil</a>
+                <a href="../../src/CerrarSesion.php" id="logout-link" style="--i:3;">Cerrar Sesión</a>
+
+            </nav>
+        </header>
+
+        <main>
+            <h2 class="text-center mb-3  "><span id="nombre"></span></h2>
+
+            <div class="row gap-2 ">
+                
+                <div class="col-md-5  ">
+                    <h2 class="text-center mt-3 mb-4  ">Mis Proyectos</h2>
+                    <?php if (empty($proyectos)): ?>
+                    <h4 class="h4">No tienes ningun proyecto.</h4>
+                    <?php else: ?>
+                    <ul class="lista">
+                        <?php foreach ($proyectos as $proyecto): ?>
+                        <li>
+                            <strong>
+                                <a class="enlace_proyecto"
+                                    href="DetalleProyecto.php?id=<?php echo $proyecto['id_proyecto']; ?>">
+                                    <?=  $proyecto['titulo_proyecto'] ?>
+                                </a>
+                            </strong>
+                        </li>
+                        <?php endforeach; ?>
+                        <?php endif; ?>
+                    </ul>
+
+                    <a href="../../public/html/CrearProyecto/crear_proyecto.html" class="btn btn-success " style="background-color: #003516;">Crear
+                        Proyecto</a>
+
+                </div>
+
+                <!-- Columna derecha para otras cosas -->
+                <div class="col">
+                    <h2 class="text-center mt-3 mb-4">Notificaciones</h2>
+                    <form action="" method="post" class="text-center">
+                        <div class="row">
+                            <?php if (empty($notificaciones)): ?>
+                            <h3 class="h4 text-start ">No tienes ninguna notificación.</h4>
+                            <?php else: ?>
+                            <?php foreach ($notificaciones as $notificacion): ?>
+                            <div class="col-lg-4 col-md-12 mb-4">
+                                <div class="card card-section card-section-third border rounded h-100">
+                                    <div class="card-header card-header-third rounded">
+                                        <h2 class="card-header-title mb-1 text-white">
+                                            <?= $notificacion['autor'] ?>
+                                        </h2>
+                                    </div>
+                                    <div class="card-body d-flex flex-column text-center mb-1">
+                                        <p class="card-text">
+                                            <?= $notificacion['mensaje']; ?>
+                                        </p>
+                                        <hr>
+                                    </div>
+                                    <div class="text-center mb-2 ">
+                                        <a href="DetalleProyecto.php?id=<?php echo $notificacion['id_proyecto']; ?>" class="btn btn-outline-light    w-50">Ver</a>
+                                    </div>
+                                    <label>
+                                        <input type="checkbox" class="" name="notificaciones[]"
+                                            value="<?php echo $notificacion['id_notificacion']; ?>">
+                                        Marcar como vista
+                                    </label>
+                                </div>
+                            </div>
+                            <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
+                        <button type="submit" class="btn btn-success" style="background-color: #003516;">Marcar como vista</button>
+                    </form>
+                </div>
+
+            </div>
+
+
+    </div>
+
+    </main>
+    <script>
+
+        var nombre_usuario = "Bienvenido a Café y Tinta <?php echo $nombre_usuario; ?> !";
+
+        // La velocidad a la que se escribe el nombre de usuario (en milisegundos)
+        var velocidad = 125;
+        var i = 0;
+        // Una función para escribir el nombre de usuario letra por letra
+        function escribirNombre() {
+            if (i < nombre_usuario.length) {
+                nombre.innerHTML += nombre_usuario.charAt(i);
+                i++;
+                setTimeout(escribirNombre, velocidad);
+            }
+        }
+
+        // Llamar a la función para empezar a escribir el nombre de usuario
+        escribirNombre();
+
+        document.querySelector('#logout-link').addEventListener('click', function (e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¿Quieres cerrar la sesión?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, cerrar sesión!',
+                cancelButtonText: 'No'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '../../src/CerrarSesion.php';
+                }
+            })
+        });
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
