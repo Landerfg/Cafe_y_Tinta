@@ -1,0 +1,7 @@
+{
+    "host": "cafeytinta.es",
+    "db": "cafeytinta",
+    "user": "usuario",
+    "pass": "contraseña",
+    "charset": "utf8mb4"
+}
