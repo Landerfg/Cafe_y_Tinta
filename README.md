@@ -1,4 +1,3 @@
-```markdown
 # Café y Tinta
 
 Café y Tinta es una aplicación diseñada para la gestión de proyectos literarios, desarrollada con PHP, JS y HTML. Permite a los usuarios colaborar en la creación, edición y valoración de proyectos relacionados con libros.
@@ -56,4 +55,3 @@ Permite a los usuarios comentar en proyectos.
 Este proyecto está bajo la licencia [MIT](LICENSE).
 
 ¡Disfruta colaborando en tus proyectos literarios con Café y Tinta! 📚☕
-```
